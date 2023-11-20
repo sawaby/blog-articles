@@ -1,4 +1,5 @@
-import SideNav from '@/app/components/SideNav';
+
+import Posts from '../components/Posts';
 
 
 export default function PostsLayout({
@@ -8,7 +9,7 @@ export default function PostsLayout({
   }) {
     return (
     <div className='flex flex-row'>
-        <SideNav />
+        <Posts />
       
         {children}
      
