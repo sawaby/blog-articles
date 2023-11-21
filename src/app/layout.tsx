@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({ weight: '400', subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Coding Goal",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-primary text-slate-300">
+      <body className={`bg-primary text-slate-300 ${mulish.className}`}>
         <Header />
         <main className="max-w-screen-xl mx-auto p-4">
           {children}

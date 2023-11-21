@@ -15,7 +15,7 @@ export default function Search() {
                     <TbSearch size={20} />
                     <span className="sr-only">Search icon</span>
                 </div>
-                <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm border border-zinc-700 rounded-lg bg-zinc-800" placeholder="Search..." />
+                <input type="text" id="search-navbar" className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950" placeholder="Search..." />
             </div>
             <button type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm bg-transparent rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-search" aria-expanded="false">
                 <span className="sr-only">Open main menu</span>

@@ -1,4 +1,9 @@
 import { compileMDX } from "next-mdx-remote/rsc";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import Video from "../components/Video";
+import CustomImage from "../components/CustomImage";
 
 type Filetree = {
     "tree": [
@@ -22,16 +27,33 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     const rawMDX = await res.text()
     
     if (rawMDX === '404: Not Found') return undefined
-    console.log('raw ', rawMDX)
-    const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({ source: rawMDX, })
+    
+    const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({ 
+        source: rawMDX, 
+        components: {
+            Video,
+            CustomImage,
+        },
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                rehypePlugins: [
+                    //@ts-ignore
+                    rehypeHighlight,
+                    rehypeSlug,
+                    [rehypeAutolinkHeadings, {
+                        behavior: 'wrap'
+                    }],
+                ],
+            },
+        }
+    })
 
     const id = fileName.replace(/\.mdx$/, '')
-
     const blogPostObj: BlogPost = {
         meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags}, content
     }
 
-    console.log(frontmatter)
     return blogPostObj
 }
 
@@ -56,12 +78,12 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
 
     for (const file of filesArray) {
         const post = await getPostByName(file)
+        
         if (post) {
             const { meta } = post
             posts.push(meta)
         }
     }
-
     return posts.sort((a, b) => a.title < b.title ? 1 : -1)
 
 }
