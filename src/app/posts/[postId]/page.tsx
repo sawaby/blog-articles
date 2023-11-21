@@ -31,8 +31,8 @@ export default async function Articles({params: {postId}}: Props) {
     
       <div className="md:pl-10 flex flex-col justify-between overflow-auto">
         <div>
-          <h2 className="text-xl font-bold text-slate-200 pb-6">{meta.title}</h2>
-          <article className='text-slate-300'>{content} </article>
+          <h2 className="md:text-xl md:font-bold font-semibold text-2xl text-slate-200 pb-6">{meta.title}</h2>
+          <article className='text-slate-300 text-lg md:text-base'>{content} </article>
         </div>
        
 
