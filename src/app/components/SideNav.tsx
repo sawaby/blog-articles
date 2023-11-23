@@ -5,11 +5,11 @@ type Props = {
   additionalStyle: string,
 }
 
-export default async function SideNav({post, additionalStyle}: Props) {
+export default function SideNav({post, additionalStyle}: Props) {
   const { id, title, date } = post
   
   return (
-    <div key={post.id} className={`p-1 text-sm hover:text-white ${additionalStyle}`}>
+    <div key={post.id} className={`p-1 hover:text-white ${additionalStyle}`}>
       <div>
       <Link href={`/posts/${id}`} >{title}</Link>
       </div>

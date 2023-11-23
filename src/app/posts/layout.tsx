@@ -8,7 +8,7 @@ export default function PostsLayout({
     children: React.ReactNode
   }) {
     return (
-    <div className='flex flex-row'>
+    <div className='flex'>
         <Posts />
       
         {children}
