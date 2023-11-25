@@ -10,7 +10,7 @@ export default async function Posts() {
   }
   
   return (
-    <section className=" bg-primary text-slate-400">
+    <div className=" text-slate-400">
       
       <SmallScreenSidebar posts={posts}/>
      
@@ -22,6 +22,6 @@ export default async function Posts() {
           ))}
         </ul>
       </div>
-    </section>
+    </div>
   );
 }
