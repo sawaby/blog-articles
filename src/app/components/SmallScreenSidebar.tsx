@@ -21,7 +21,7 @@ export default function SmallScreenSidebar({posts}: Props) {
    
   return (
     <div>
-        <div className="sticky top-0 w-full z-10  backdrop-blur-sm backdrop-saturate-200 bg-primary/50 text-slate-100 md:hidden">
+        <div className="sticky top-0 w-full z-1  backdrop-blur-sm backdrop-saturate-200 bg-primary text-slate-100 md:hidden">
           <div className={`${!isOpen && "border-b border-b-secondary"}`} >
             <button onClick={toggleNavbar} className="md:hidden hover:text-gray-500 cursor-pointer py-2 px-2">
             <AiOutlineMenuUnfold size={40} />
@@ -33,7 +33,7 @@ export default function SmallScreenSidebar({posts}: Props) {
           <div className="h-screen">
             {posts.map((post) => (
               <span key={post.id} onClick={toggleNavbar}>
-                  <SideNav post={post} additionalStyle=" z-10 p-4 text-lg" />
+                  <SideNav post={post} additionalStyle="z-1 p-4 text-lg" />
               </span>
               
             ))}

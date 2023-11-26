@@ -4,7 +4,7 @@ import { TbSearch, TbMenu } from "react-icons/tb";
 export default function SearchInput() {
   return (
     <div>
-        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <div className="block md:absolute md:inset-y-0 start-0 md:flex items-center ps-3 pointer-events-none">
                     <TbSearch size={20} />
                     <span className="sr-only">Search icon</span>
                 </div>
