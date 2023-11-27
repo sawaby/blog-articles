@@ -10,7 +10,6 @@ export default function Search() {
 
     function toggleMenu() {
         setIsOpen(!isOpen)
-        console.log(isOpen)
     } 
   return (
    
@@ -29,14 +28,17 @@ export default function Search() {
                 <input type="text" id="search-navbar" className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950" placeholder="Search..." /> */}
                 <SearchInput />
             </div>
-            <button onClick={toggleMenu} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm bg-transparent rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-search" aria-expanded="false">
+            <button onClick={toggleMenu} type="button" className="md:hidden px-4" >
                 <span className="sr-only">Open main menu</span>
                 <TbMenu size={30} />
             </button>
         </div>
         {isOpen && 
-            <SmallScreenNavbar />
+            
+             <SmallScreenNavbar />
+          
         }
+        
          {/* <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
             <div className="relative mt-3 md:hidden">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

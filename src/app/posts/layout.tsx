@@ -9,7 +9,8 @@ export default function PostsLayout({
   }) {
     return (
     <div className='md:flex'>
-        <div className='fixed top-[74px] md:top-auto w-full md:w-auto z-1 md:z-auto md:static'>
+      {/* fixed top-[74px]  */}
+        <div className='md:top-auto w-full md:w-auto z-1 md:z-auto md:static'>
         <Posts />
         </div>
         
