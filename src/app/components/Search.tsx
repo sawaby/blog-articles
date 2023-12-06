@@ -28,7 +28,7 @@ export default function Search() {
                 <input type="text" id="search-navbar" className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950" placeholder="Search..." /> */}
                 <SearchInput />
             </div>
-            <button onClick={toggleMenu} type="button" className="md:hidden px-4" >
+            <button onClick={toggleMenu} type="button" className="md:hidden px-4 " >
                 <span className="sr-only">Open main menu</span>
                 <TbMenu size={30} />
             </button>
