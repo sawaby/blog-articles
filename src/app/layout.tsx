@@ -23,7 +23,9 @@ export default function RootLayout({
       <body className={`bg-primary text-slate-300 ${mulish.className}`}>
         <Header />
         <main className="max-w-screen-xl mx-auto">
-          {children}
+         
+            {children}
+            
         </main>
       </body>
     </html>

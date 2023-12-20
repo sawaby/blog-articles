@@ -14,9 +14,9 @@ export default function PostsLayout({
         <Posts />
         </div>
         
-        <div className=''>
-        {children}
-        </div>
+        <article className="prose lg:prose-xl prose-invert prose-code:border prose-code:border-secondary prose-code:rounded-lg">
+          {children}
+        </article>
         
         
     </div>
