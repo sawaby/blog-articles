@@ -9,7 +9,7 @@ export default function SmallScreenNavbar({setIsOpen}: Props) {
   return (
     <div className="h-screen absolute flex flex-col items-center top-16 w-full md:hidden bg-primary/95 duration-500 transition-all">
       <div className="flex">
-       <SearchInput />
+       <SearchInput setIsOpen={setIsOpen}/>
       </div>
 
       <div>

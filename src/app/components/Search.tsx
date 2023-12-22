@@ -26,7 +26,7 @@ export default function Search() {
                     <span className="sr-only">Search icon</span>
                 </div>
                 <input type="text" id="search-navbar" className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950" placeholder="Search..." /> */}
-                <SearchInput  />
+                <SearchInput  setIsOpen={undefined} />
             </div>
             <button onClick={toggleMenu} type="button" className="md:hidden px-4 " >
                 <span className="sr-only">Open main menu</span>
