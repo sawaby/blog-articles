@@ -22,7 +22,7 @@ export default function SearchInput({setIsOpen}: Props) {
       router.push(`/tags/${term}`);
     } 
     
-    setIsOpen;
+    // setIsOpen(inputRef.current);
   }
   return (
     <form onSubmit={handleSearch}>
@@ -31,7 +31,7 @@ export default function SearchInput({setIsOpen}: Props) {
             <span className="sr-only">Search icon</span>
         </div>
         
-        <input type="text" ref={inputRef} className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950/80 focus:outline-zinc-600" placeholder="Search..." />
+        <input type="text" ref={inputRef}  className="block w-[237px] p-2 ps-10 text-sm border border-zinc-800 rounded-lg bg-zinc-950/80 focus:outline-zinc-600" placeholder="Search..." />
     </form>
   )
 }
