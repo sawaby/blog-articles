@@ -22,7 +22,7 @@ export default function SearchInput({setIsOpen}: Props) {
       router.push(`/tags/${term}`);
     } 
     
-    // setIsOpen(inputRef.current);
+     setIsOpen(inputRef.current?.value);
   }
   return (
     <form onSubmit={handleSearch}>
