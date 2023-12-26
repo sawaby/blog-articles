@@ -2,14 +2,10 @@
 
 import React from 'react'
 import { TbSearch, TbMenu } from "react-icons/tb";
-import TagPostList from '../tags/[tag]/page';
 import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useOpenMenuContext } from "../context/menu-context";
 
-// type Props = {
-//   setIsOpen: React.MouseEventHandler<HTMLLIElement>
-// }
 
 export default function SearchInput() {
   const { isOpen, setIsOpen } = useOpenMenuContext();
@@ -26,7 +22,7 @@ export default function SearchInput() {
     } 
     
     setIsOpen(!isOpen);
-    inputRef.current.value = "";
+    inputRef.current!.value = "";
   }
   return (
     <form onSubmit={handleSearch}>

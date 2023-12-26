@@ -3,11 +3,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useOpenMenuContext } from "../context/menu-context";
 
-// type Props = {
-//   setIsOpen:  React.MouseEventHandler<HTMLLIElement> | undefined
-// } 
-
-
 export default function NavMenu() {
   const { isOpen, setIsOpen } = useOpenMenuContext();
 
@@ -34,36 +29,7 @@ export default function NavMenu() {
         ))
         
         }
-        {/* <li onClick={setIsOpen}>
-          <Link
-            href="/posts"
-            className={`block py-4 px-3 text-slate-300 md:p-0 ${
-              pathname === "/posts" ? "active" : ""
-            }`}
-          >
-            Python
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/"
-            className={`block py-4 px-3 text-slate-300 md:p-0 ${
-              pathname === "/" ? "active" : ""
-            }`}
-          >
-            React
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/"
-            className={`block py-4 px-3 text-slate-300 md:p-0 ${
-              pathname === "/" ? "active" : ""
-            }`}
-          >
-            NextJS
-          </Link>
-        </li> */}
+       
       </ul>
     </div>
   );
