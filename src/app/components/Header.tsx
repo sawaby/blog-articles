@@ -12,7 +12,7 @@ export default function Header() {
                 <span className="self-center text-2xl md:font-semibold text-white px-4 md:px-0">Coding Goal</span>
             </Link>
             <div className="hidden md:flex">
-            <NavMenu setIsOpen={undefined}/>
+            <NavMenu />
             </div>
             
             <Search />
