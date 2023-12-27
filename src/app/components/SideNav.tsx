@@ -1,19 +1,18 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 type Props = {
-  post: Meta,
-  additionalStyle: string,
-}
+  post: Meta;
+  additionalStyle: string;
+};
 
-export default function SideNav({post, additionalStyle}: Props) {
-  const { id, title, date } = post
-  
+export default function SideNav({ post, additionalStyle }: Props) {
+  const { id, title, date } = post;
+
   return (
     <div key={post.id} className={`p-1 hover:text-white ${additionalStyle}`}>
       <div>
-      <Link href={`/posts/${id}`} >{title}</Link>
+        <Link href={`/posts/${id}`}>{title}</Link>
       </div>
-      
     </div>
-  )
+  );
 }
