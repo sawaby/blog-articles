@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`bg-primary text-slate-300 md:mx-10 ${mulish.className}`}>
+      <body className={`bg-primary text-slate-300 ${mulish.className}`}>
         <OpenMenuContextProvider>
           <Header />
         </OpenMenuContextProvider>

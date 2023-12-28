@@ -1,6 +1,6 @@
 
 'use client'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import SideNav from "./SideNav";
 
@@ -32,8 +32,8 @@ export default function SmallScreenSidebar({posts}: Props) {
   return (
     <div>
       {/* sticky top-0 */}
-        <div id="menu1" className="flex flex-col text-slate-100 md:hidden">
-          <div className={`${isOpen && "w-full backdrop-blur-sm backdrop-saturate-200 bg-primary/50"}`} >
+        <div id="menu1" className="w-full -z-1 flex flex-col text-slate-100 md:hidden">
+          <div className={`${isOpen && "backdrop-blur-sm backdrop-saturate-200 bg-primary/50"}`} >
             <button onClick={toggleNavbar} className="md:hidden hover:text-gray-500 cursor-pointer py-2 px-2">
             <AiOutlineMenuUnfold size={40} />
             
