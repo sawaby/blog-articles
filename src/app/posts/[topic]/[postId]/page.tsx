@@ -7,18 +7,19 @@ export const revalidate = 0
 
 type Props ={
   params: {
+    topic: string,
     postId: string,
   }
 }
 
-export default async function Articles({params: {postId}}: Props) {
+export default async function Articles({params: {topic, postId}}: Props) {
   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   // const posts: BlogPosts = await res.json();
 
   console.log('postid ', postId)
   // const postName = postId.split('/')[1]
   //   console.log('post name in page: ', postName)
-  const post = await getPostByName(`/${postId}.mdx`)
+  const post = await getPostByName(`${topic}/${postId}.mdx`)
 
   if (!post) notFound()
 

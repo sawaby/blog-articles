@@ -12,7 +12,7 @@ type Filetree = {
         }
     ]
 }
-const topic = 'python'
+const topic = 'react'
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/sawaby/blogposts/main/${fileName}`, {
         headers: {
