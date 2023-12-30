@@ -14,7 +14,11 @@ type Props ={
 export default async function Articles({params: {postId}}: Props) {
   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   // const posts: BlogPosts = await res.json();
-  const post = await getPostByName(`${postId}.mdx`)
+
+  console.log('postid ', postId)
+  // const postName = postId.split('/')[1]
+  //   console.log('post name in page: ', postName)
+  const post = await getPostByName(`/${postId}.mdx`)
 
   if (!post) notFound()
 

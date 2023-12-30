@@ -12,7 +12,7 @@ type Filetree = {
         }
     ]
 }
-
+const topic = 'python'
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/sawaby/blogposts/main/${fileName}`, {
         headers: {
@@ -23,8 +23,10 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     })
 
     if (!res.ok) return undefined
-
+    
     const rawMDX = await res.text()
+
+    // console.log("rawMDX for post by name: ", rawMDX)
     
     if (rawMDX === '404: Not Found') return undefined
     
@@ -49,6 +51,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         }
     })
 
+    
     const id = fileName.replace(/\.mdx$/, '')
     const blogPostObj: BlogPost = {
         meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags}, content
@@ -71,12 +74,18 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
     if (!res.ok) return undefined
 
     const repoFiletree: Filetree = await res.json()
+    // console.log('file tree', repoFiletree)
+    const startPath = repoFiletree.tree.map(obj => obj.path).filter(path => path.startsWith(topic));
+    // console.log('start path : ', startPath)
+    const filesArray = startPath.map(obj => obj).filter(path => path.endsWith('.mdx'));
 
-    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'));
+    // console.log(filesArray)
     
     const posts: Meta[] = []
 
     for (const file of filesArray) {
+        // console.log("file name : ", file)
+
         const post = await getPostByName(file)
         
         if (post) {
@@ -84,6 +93,7 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
             posts.push(meta)
         }
     }
-    return posts.sort((a, b) => a.title < b.title ? 1 : -1)
+    return posts.sort((a, b) => a.toString().localeCompare(b.toString(), undefined, { numeric: true }));
+    // return posts.sort((a, b) => a.title < b.title ? 1 : -1)
 
 }

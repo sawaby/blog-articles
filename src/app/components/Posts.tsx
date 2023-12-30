@@ -4,7 +4,7 @@ import SmallScreenSidebar from "./SmallScreenSidebar";
 
 export default async function Posts() {
   const posts = await getPostsMeta();
-
+  // console.log(posts)
   if (!posts) {
     return <p className="mt-6 text-center">No Posts Available.</p>;
   }

@@ -2,7 +2,7 @@
 
 type Meta = {
     id: string,
-    title :string,
+    title: string,
     date: string,
     tags: string[],
 }
