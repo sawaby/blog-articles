@@ -7,7 +7,7 @@ export const revalidate = 0
 
 type Props = {
     params: {
-        tag: string
+        tag: string,
     }
 }
 

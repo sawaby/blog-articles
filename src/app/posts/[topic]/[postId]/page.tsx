@@ -16,7 +16,7 @@ export default async function Articles({params: {topic, postId}}: Props) {
   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   // const posts: BlogPosts = await res.json();
 
-  console.log('postid ', postId)
+  // console.log('postid ', postId)
   // const postName = postId.split('/')[1]
   //   console.log('post name in page: ', postName)
   const post = await getPostByName(`${topic}/${postId}.mdx`)
