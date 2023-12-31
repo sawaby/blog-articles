@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import OpenMenuContextProvider from "./context/menu-context";
+import OpenMenuContextProvider, { TopicContextProvider } from "./context/menu-context";
 
 const mulish = Mulish({ weight: '400', subsets: ["latin"] });
 
@@ -22,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-primary text-slate-300 ${mulish.className}`}>
+       <TopicContextProvider>
         <OpenMenuContextProvider>
           <Header />
         </OpenMenuContextProvider>
@@ -31,6 +32,7 @@ export default function RootLayout({
             {children}
             
         </main>
+        </TopicContextProvider>
       </body>
     </html>
   );

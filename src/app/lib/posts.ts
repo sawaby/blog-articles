@@ -4,7 +4,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import Video from "../components/Video";
 import CustomImage from "../components/CustomImage";
-
+// import { useTopicContext } from "../context/menu-context";
 type Filetree = {
     "tree": [
         {
@@ -62,7 +62,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
 
 
-export async function getPostsMeta(): Promise<Meta[] | undefined> {
+export async function getPostsMeta(topic: string): Promise<Meta[] | undefined> {
     const res = await fetch('https://api.github.com/repos/sawaby/blogposts/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
@@ -70,6 +70,8 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
             'X-GitHub-Api-Version': '2022-11-28'
         }
     });
+    console.log("topic: ", topic)
+    // const { topic, setTopic } = useTopicContext();
 
     if (!res.ok) return undefined
 

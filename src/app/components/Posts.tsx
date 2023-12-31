@@ -1,10 +1,14 @@
+'use client'
 import { getPostsMeta } from "../lib/posts";
 import SideNav from "./SideNav";
 import SmallScreenSidebar from "./SmallScreenSidebar";
+import { useTopicContext } from "../context/menu-context";
 
 export default async function Posts() {
-  const posts = await getPostsMeta();
-
+  const {topic, setTopic} = useTopicContext();
+  console.log("this is topic to be passed: ", topic)
+  const posts = await getPostsMeta(topic)
+  // const posts = await getPostsMeta();
   if (!posts) {
     return <p className="mt-6 text-center">No Posts Available.</p>;
   }
