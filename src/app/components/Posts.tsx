@@ -1,12 +1,31 @@
 'use client'
+import { useEffect, useState } from "react";
 import { getPostsMeta } from "../lib/posts";
 import SideNav from "./SideNav";
 import SmallScreenSidebar from "./SmallScreenSidebar";
 import { useTopicContext } from "../context/menu-context";
 
+
 export default async function Posts() {
   const {topic, setTopic} = useTopicContext();
-  console.log("this is topic to be passed: ", topic)
+  // const [ posts, setPosts ] = useState([]);
+  // const posts: Meta[] | undefined = []; 
+  // const posts: Meta[] | undefined =[];
+  // useEffect(() => {
+  //   const getPosts = async () => {
+  //     console.log("topic in useeffect: ", topic)
+  //     const apiCall = await getPostsMeta(topic);
+  //     console.log("this is posts to be passed: ", apiCall)
+  //     // posts.push(apiCall);
+  //   };
+  //   getPosts();
+
+  //   return () => {
+
+  //   };
+   
+  // }, [topic])
+  
   const posts = await getPostsMeta(topic)
   // const posts = await getPostsMeta();
   if (!posts) {
