@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { useEffect, useState } from "react";
 import { getPostsMeta } from "../lib/posts";
 import SideNav from "./SideNav";
