@@ -1,13 +1,18 @@
 // 'use client'
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { getPostsMeta } from "../lib/posts";
 import SideNav from "./SideNav";
 import SmallScreenSidebar from "./SmallScreenSidebar";
-import { useTopicContext } from "../context/menu-context";
+// import { useTopicContext } from "../context/menu-context";
 
+// type Props = {
+//   params: {
+//       topic: string,
+//   }
+// }
 
 export default async function Posts() {
-  const {topic, setTopic} = useTopicContext();
+  // const {topic, setTopic} = useTopicContext();
   // const [ posts, setPosts ] = useState([]);
   // const posts: Meta[] | undefined = []; 
   // const posts: Meta[] | undefined =[];
@@ -26,7 +31,7 @@ export default async function Posts() {
    
   // }, [topic])
   
-  const posts = await getPostsMeta(topic)
+  const posts = await getPostsMeta()
   // const posts = await getPostsMeta();
   if (!posts) {
     return <p className="mt-6 text-center">No Posts Available.</p>;

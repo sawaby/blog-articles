@@ -12,7 +12,8 @@ type Filetree = {
         }
     ]
 }
-// const topic = 'python'
+ const topic = 'python'
+ 
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/sawaby/blogposts/main/${fileName}`, {
         headers: {
@@ -62,7 +63,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
 
 
-export async function getPostsMeta(topic: string): Promise<Meta[] | undefined> {
+export async function getPostsMeta(): Promise<Meta[] | undefined> {
     const res = await fetch('https://api.github.com/repos/sawaby/blogposts/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
@@ -70,9 +71,9 @@ export async function getPostsMeta(topic: string): Promise<Meta[] | undefined> {
             'X-GitHub-Api-Version': '2022-11-28'
         }
     });
-    console.log("topic lib: ", topic.toLowerCase())
+    // console.log("topic lib: ", topic.toLowerCase())
     // const { topic, setTopic } = useTopicContext();
-    console.log("res from lib: ", res)
+    // console.log("res from lib: ", res)
     if (!res.ok) return undefined
 
     const repoFiletree: Filetree = await res.json()

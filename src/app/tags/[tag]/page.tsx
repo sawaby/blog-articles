@@ -2,7 +2,7 @@
 import { getPostsMeta } from "@/app/lib/posts";
 import SideNav from "@/app/components/SideNav";
 import Link from "next/link";
-import { useTopicContext } from "@/app/context/menu-context";
+// import { useTopicContext } from "@/app/context/menu-context";
 
 export const revalidate = 0
 
@@ -26,9 +26,9 @@ type Props = {
 
 
 export default async function TagPostList({ params: { tag }}: Props) {
-    const {topic, setTopic} = useTopicContext();
-    console.log("this is topic to be passed tag page file: ", topic)
-    const posts = await getPostsMeta(topic)
+    // const {topic, setTopic} = useTopicContext();
+    // console.log("this is topic to be passed tag page file: ", topic)
+    const posts = await getPostsMeta()
 
     if (!posts) return <p className="mt-10 text-center">No posts available.</p>
 
