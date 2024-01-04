@@ -12,7 +12,7 @@ type Filetree = {
         }
     ]
 }
- const topic = 'python'
+//  const topic = 'python'
  
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/sawaby/blogposts/main/${fileName}`, {
@@ -78,9 +78,9 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
 
     const repoFiletree: Filetree = await res.json()
     // console.log('file tree', repoFiletree)
-    const startPath = repoFiletree.tree.map(obj => obj.path).filter(path => path.startsWith(topic.toLowerCase()));
+    // const startPath = repoFiletree.tree.map(obj => obj.path).filter(path => path.startsWith(topic.toLowerCase()));
     // console.log('start path : ', startPath)
-    const filesArray = startPath.map(obj => obj).filter(path => path.endsWith('.mdx'));
+    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'));
 
     // console.log(filesArray)
     

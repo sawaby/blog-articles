@@ -12,7 +12,6 @@ import SmallScreenSidebar from "./SmallScreenSidebar";
 // }
 
 export default async function Posts() {
-  // const {topic, setTopic} = useTopicContext();
   // const [ posts, setPosts ] = useState([]);
   // const posts: Meta[] | undefined = []; 
   // const posts: Meta[] | undefined =[];
@@ -36,7 +35,7 @@ export default async function Posts() {
   if (!posts) {
     return <p className="mt-6 text-center">No Posts Available.</p>;
   }
-  
+  // console.log(topic)
   return (
     <div className=" text-slate-400">
       
