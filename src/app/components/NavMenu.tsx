@@ -11,8 +11,14 @@ export default function NavMenu() {
   const pathname = usePathname();
 
   function clickHandler(e:React.MouseEvent<HTMLLIElement>){
+
     setIsOpen(!isOpen);
-    setTopic((e.target as HTMLLIElement).innerHTML); 
+    const chosenTopic = (e.target as HTMLLIElement).innerHTML;
+    if (topic != chosenTopic ){
+      localStorage.setItem("topic", chosenTopic);
+    }
+    setTopic(chosenTopic); 
+
   }
   return (
     <div className="items-center justify-between  w-full md:flex md:w-auto md:order-1">
@@ -20,7 +26,7 @@ export default function NavMenu() {
         { menuItems.map( (items, index) => (
             <li key={index} value={items} onClick={clickHandler} className="border-b border-zinc-800 w-48 text-center md:border-none md:w-full md:text-base">
               <Link
-                href="/posts"
+                href="/posts/"
                 className={`block py-4 px-3 text-slate-300 md:p-0 ${
                   pathname === "/posts" ? "active" : ""
                 }`}
